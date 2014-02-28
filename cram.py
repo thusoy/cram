@@ -12,6 +12,7 @@ import sys
 import shutil
 import time
 import tempfile
+import textwrap
 
 try:
     import configparser
@@ -444,12 +445,13 @@ def main():
     opts, paths = p.parse_args()
 
     if opts.version:
-        sys.stdout.write("""Cram CLI testing framework (version 0.6)
+        sys.stdout.write(textwrap.dedent("""\
+            Cram CLI testing framework (version 0.6)
 
-Copyright (C) 2010-2011 Brodie Rao <brodie@bitheap.org> and others
-This is free software; see the source for copying conditions. There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-""")
+            Copyright (C) 2010-2011 Brodie Rao <brodie@bitheap.org> and others
+            This is free software; see the source for copying conditions. There is NO
+            warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+            """))
         return
 
     conflicts = [('-y', opts.yes, '-n', opts.no),
