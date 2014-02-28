@@ -58,7 +58,11 @@ setup(
     long_description=long_description(),
     name='cram',
     py_modules=['cram'],
-    scripts=['scripts/cram'],
+    entry_points={
+        'console_scripts': [
+            'cram = cram:main',
+        ]
+    },
     url='https://bitheap.org/cram/',
     version='0.6',
 )

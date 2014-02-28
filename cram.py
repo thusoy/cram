@@ -418,11 +418,8 @@ class OptionParser(optparse.OptionParser):
         except optparse.OptionValueError:
             self.error(str(sys.exc_info()[1]))
 
-def main(args):
-    """Main entry point.
-
-    args should not contain the script name.
-    """
+def main():
+    """Main entry point."""
     p = OptionParser(usage='cram [OPTIONS] TESTS...', prog='cram')
     p.add_option('-V', '--version', action='store_true',
                  help='show version information and exit')
@@ -444,7 +441,7 @@ def main(args):
                  help='shell to use for running tests')
     p.add_option('--indent', action='store', default=2, metavar='NUM',
                  type='int', help='number of spaces to use for indentation')
-    opts, paths = p.parse_args(args)
+    opts, paths = p.parse_args()
 
     if opts.version:
         sys.stdout.write("""Cram CLI testing framework (version 0.6)
